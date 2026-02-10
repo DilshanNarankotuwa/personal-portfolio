@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
-import About from "./components/About.jsx";
+import StatsBar from "./components/StatsBar.jsx";
 import SkillConstellation from "./components/SkillConstellation.jsx";
 import Projects from "./components/Projects.jsx";
 import Experience from "./components/Experience.jsx";
@@ -25,7 +25,7 @@ export default function App() {
 
       <main className="relative">
         <Hero />
-        <About />
+        <StatsBar />
         <SkillConstellation />
         <Projects />
         <Experience />
