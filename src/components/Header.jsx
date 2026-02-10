@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container-pad flex h-16 items-center justify-between">
         <a href="#top" className="group flex items-center gap-2">
           <div className="h-9 w-9 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] grid place-items-center shadow-sm">
-            <span className="text-sm font-semibold tracking-tight">D</span>
+            <img src="/dilshan.jpeg" alt="site.name" className="h-9 w-9 rounded-full" />
           </div>
           <div className="leading-tight">
             <div className="text-sm font-semibold">{site.name}</div>

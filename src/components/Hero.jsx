@@ -25,66 +25,86 @@ export default function Hero() {
   return (
     <section id="top" className="container-pad pt-14 sm:pt-20 pb-10">
       <div className="grid items-start gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start">
+          {/* BIG CIRCULAR IMAGE */}
           <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="inline-flex items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-2 text-xs text-[rgb(var(--muted))]"
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="relative"
           >
-            <span className="h-2 w-2 rounded-full bg-[rgb(var(--brand))]" />
-            Lab Console Portfolio • Unique + Recruiter-Friendly
+            {/* glow */}
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-40 bg-[rgb(var(--brand))]" />
+
+            <img
+              src="/dilshan.jpeg"
+              alt={site.name}
+              className="relative z-10 h-72 w-72 sm:h-96 sm:w-96 rounded-full
+                        object-cover border-4 border-[rgb(var(--border))]
+                        shadow-2xl"
+            />
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.05 }}
-            className="mt-5 text-4xl sm:text-5xl font-semibold tracking-tight"
-          >
-            Science-grade thinking.
-            <br />
-            <span className="text-[rgb(var(--muted))]">Production-style software.</span>
-          </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.12 }}
-            className="mt-4 max-w-xl text-sm sm:text-base text-[rgb(var(--muted))]"
-          >
-            {site.tagline}
-          </motion.p>
-
+          {/* SCIENCE-GRADE THINKING MOVED DOWN */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.18 }}
-            className="mt-7 flex flex-wrap items-center gap-3"
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="mt-8 max-w-xl text-center lg:text-left"
           >
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 rounded-2xl bg-[rgb(var(--fg))] px-4 py-3 text-sm font-medium text-[rgb(var(--bg))] hover:translate-y-[-1px] transition"
-            >
-              View Projects
-              <ArrowRight className="h-4 w-4 opacity-80 group-hover:translate-x-0.5 transition" />
-            </a>
+            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+              Science-grade thinking.
+              <br />
+              <span className="text-[rgb(var(--muted))]">
+                Production-style software.
+              </span>
+            </h2>
 
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-3 text-sm hover:translate-y-[-1px] transition"
-            >
-              Contact
-            </a>
+            <p className="mt-4 text-sm sm:text-base text-[rgb(var(--muted))]">
+              {site.tagline}
+            </p>
 
-            <a
-              href={site.links.resume}
-              className="inline-flex items-center gap-2 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-3 text-sm hover:translate-y-[-1px] transition"
-            >
-              Resume
-            </a>
+                        <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-3">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 rounded-2xl
+                          bg-[rgb(var(--brand))] px-5 py-3 text-sm font-medium
+                          text-white hover:-translate-y-px transition"
+              >
+                View Projects
+                <ArrowRight className="h-4 w-4 opacity-90 group-hover:translate-x-0.5 transition" />
+              </a>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-2xl
+                          border border-[rgb(var(--border))]
+                          bg-[rgb(var(--card))] px-5 py-3 text-sm
+                          hover:-translate-y-[-1px] transition"
+              >
+                Contact
+              </a>
+
+              {/* ✅ RESUME BUTTON */}
+              <a
+                href={site.links.resume}
+                className="inline-flex items-center gap-2 rounded-2xl
+                          border border-[rgb(var(--border))]
+                          bg-[rgb(var(--card))] px-5 py-3 text-sm
+                          hover:-translate-y-[-1px] transition"
+              >
+                Resume
+              </a>
+            </div>
+
           </motion.div>
         </div>
+
+
 
         <div className="lg:col-span-5">
           <motion.div
@@ -132,16 +152,38 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              {site.highlights.map((h) => (
-                <div
-                  key={h}
-                  className="card2 rounded-2xl p-3 text-xs text-[rgb(var(--muted))]"
-                >
-                  {h}
-                </div>
-              ))}
+            <div className="mt-6 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] p-4">
+              <div className="mb-3 text-xs tracking-[0.2em] uppercase text-[rgb(var(--muted))]">
+                Modules
+              </div>
+
+              <ul className="space-y-3 font-mono text-xs sm:text-sm">
+                <li className="flex items-start gap-3">
+                  <span className="text-[rgb(var(--brand))]">▸</span>
+                  <span className="text-[rgb(var(--muted))]">MODULE_LOADED</span>
+                  <span className="text-[rgb(var(--fg))]">
+                    GigaHz — Build-Your-Own-PC system with compatibility logic
+                  </span>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <span className="text-[rgb(var(--brand))]">▸</span>
+                  <span className="text-[rgb(var(--muted))]">MODULE_LOADED</span>
+                  <span className="text-[rgb(var(--fg))]">
+                    Backend APIs • PostgreSQL • Prisma workflows
+                  </span>
+                </li>
+
+                <li className="flex items-start gap-3">
+                  <span className="text-[rgb(var(--brand))]">▸</span>
+                  <span className="text-[rgb(var(--muted))]">MODULE_LOADED</span>
+                  <span className="text-[rgb(var(--fg))]">
+                    Linux / Ubuntu • HPC simulation experience (science → tech edge)
+                  </span>
+                </li>
+              </ul>
             </div>
+
           </motion.div>
         </div>
       </div>
