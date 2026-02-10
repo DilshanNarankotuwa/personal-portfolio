@@ -23,7 +23,7 @@ export default function Header() {
             <motion.a
               key={it.href}
               href={it.href}
-              className="relative px-3 py-2 text-sm text-[rgb(var(--muted))] hover:text-[rgb(var(--fg))]"
+              className="relative px-3 py-2 text-base text-[rgb(var(--muted))] hover:text-[rgb(var(--fg))]"
               whileHover="hover"
               initial="rest"
               animate="rest"

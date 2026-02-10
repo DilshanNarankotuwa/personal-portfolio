@@ -40,7 +40,7 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full blur-3xl opacity-40 bg-[rgb(var(--brand))]" />
 
             <img
-              src="/dilshan.jpeg"
+              src="/images/dilshan.jpeg"
               alt={site.name}
               className="relative z-10 h-72 w-72 sm:h-100 sm:w-100 rounded-full
                         object-cover border-4 border-[rgb(var(--border))]
