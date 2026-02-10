@@ -42,7 +42,7 @@ export default function Hero() {
             <img
               src="/dilshan.jpeg"
               alt={site.name}
-              className="relative z-10 h-72 w-72 sm:h-96 sm:w-96 rounded-full
+              className="relative z-10 h-72 w-72 sm:h-100 sm:w-100 rounded-full
                         object-cover border-4 border-[rgb(var(--border))]
                         shadow-2xl"
             />
