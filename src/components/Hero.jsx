@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section id="top" className="container-pad pt-14 sm:pt-20 pb-10">
       <div className="grid items-start gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-7 flex flex-col items-center lg:items-start">
+        <div className="lg:col-span-7 flex flex-col items-center lg:items-start ml-24">
           {/* BIG CIRCULAR IMAGE */}
           <motion.div
             animate={{ y: [0, -6, 0] }}

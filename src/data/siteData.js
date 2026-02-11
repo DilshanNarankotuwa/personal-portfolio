@@ -103,13 +103,24 @@ export const site = {
     }
   ],
   
-
   projects: [
     {
-      title: "GigaHz — Build Your Own PC System",
+      title: "GigaHz Build Your Own PC System",
       badge: "Flagship",
       description:
         "A PC-building platform with compatibility checks (socket, RAM type, power budget) and a clean shopping-flow UI.",
+      weight: 6,
+      // ✅ NEW: media between description and stack
+      media: {
+        kind: "video",
+        poster: "/media/gigahz-poster.jpg",
+        sources: [
+          { src: "/media/gigahz-demo.webm", type: "video/webm" },
+          { src: "/media/dj.mp4", type: "video/mp4" },
+        ],
+        alt: "GigaHz build flow demo",
+      },
+
       stack: ["React", "Node.js", "PostgreSQL", "Prisma", "Vercel/Render"],
       points: [
         "Compatibility logic that prevents invalid builds",
@@ -121,11 +132,20 @@ export const site = {
         { label: "Live", href: "https://YOUR_DEPLOYED_URL" },
       ],
     },
+
     {
-      title: "Galaxy BRIDGE — Undergraduate Final Project",
+      title: "Galaxy BRIDGE Undergraduate Final Project",
       badge: "Research",
       description:
         "A pipeline-based project that connects tools and datasets to streamline scientific workflows and automation.",
+      weight: 2,
+      // ✅ NEW: image example
+      media: {
+        kind: "image",
+        src: "/media/galaxy-bridge.png",
+        alt: "Galaxy BRIDGE pipeline preview",
+      },
+
       stack: ["Python", "Automation", "Scientific computing"],
       points: [
         "Focused on reusable tooling and automation mindset",
@@ -134,6 +154,7 @@ export const site = {
       links: [{ label: "GitHub", href: "https://github.com/YOUR_USERNAME/galaxy-bridge" }],
     },
   ],
+
 
   experience: [
     {
