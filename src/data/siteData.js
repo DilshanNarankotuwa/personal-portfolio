@@ -22,11 +22,21 @@ export const site = {
     {
       group: "Full-Stack",
       items: [
-        { name: "React", img: "https://cdn.simpleicons.org/react/61DAFB" },
-        { name: "Vite", img: "https://cdn.simpleicons.org/vite/646CFF" },
-        { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs/339933" },
-        { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+        { name: "HTML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"},
+        { name: "CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"},
+        { name: "JavaScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"},
+        { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"},
+        { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"},
+        { name: "Vite", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" },
+        { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain-wordmark.svg" },
+        { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"},
+        { name: "Tailwind CSS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "Prisma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg"},
+        { name: "PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"},
+        { name: "Express.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"},
         { name: "Framer Motion", img: "https://cdn.simpleicons.org/framer/0055FF" },
+        { name: "Jasmine", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jasmine/jasmine-original.svg"},
+        { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"},
         "Component Architecture",
         "State Handling (useState, useContext)",
         "Responsive UI Design",
@@ -38,7 +48,9 @@ export const site = {
     {
       group: "Automation & Embedded",
       items: [
-        { name: "Python", img: "https://cdn.simpleicons.org/python/3776AB" },
+        { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
+        { name: "XML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xml/xml-original.svg" },
+        { name: "Raspberry Pi", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg"},
         "Python Automation",
         "Scientific Data Processing",
         "XML Tool Development",
@@ -66,7 +78,7 @@ export const site = {
       items: [
         { name: "Linux", img: "https://cdn.simpleicons.org/linux/FCC624" },
         { name: "Git", img: "https://cdn.simpleicons.org/git/F05032" },
-        "Ubuntu",
+        { name: "Ubuntu", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg"},
         "HPC Cluster Usage",
         "Remote Supercomputing Environments",
         "Git Version Control"
@@ -75,9 +87,10 @@ export const site = {
     {
       group: "CompChem & MD",
       items: [
-        { name: "LAMMPS", img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/LAMMPS_logo.png" },
-        { name: "Quantum ESPRESSO", img: "https://www.quantum-espresso.org/wp-content/uploads/2016/02/QE-logo.png" },
-        { name: "PLUMED", img: "https://www.plumed.org/wp-content/uploads/2022/11/plumed-logo.png" },
+        "Python",
+         "LAMMPS", 
+        "Quantum ESPRESSO",
+         "PLUMED", 
         "Molecular Docking Pipelines",
         "Ligand Optimization",
         "Molecular Dynamics Simulations",
