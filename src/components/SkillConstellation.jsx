@@ -512,15 +512,6 @@ export default function SkillConstellation() {
               </svg>
             </motion.div>
           </div>
-
-          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-[rgb(var(--muted))]">
-            <span className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-3 py-1">
-              Status: {hovered ? "Paused" : "Running"}
-            </span>
-            <span className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-3 py-1">
-              Motion: {prefersReduced ? "Reduced" : "Full"}
-            </span>
-          </div>
         </div>
 
         {/* RIGHT */}
@@ -582,13 +573,6 @@ export default function SkillConstellation() {
               </div>
             ))}
           </motion.div>
-
-          <div className="mt-6 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] p-4">
-            <div className="text-sm font-semibold text-[rgb(var(--text))]">GigaHz signal</div>
-            <div className="mt-1 text-sm text-[rgb(var(--muted))]">
-              Domains orbit the core, tooling snaps into focus — technical, clean, and memorable.
-            </div>
-          </div>
         </div>
       </div>
     </Section>

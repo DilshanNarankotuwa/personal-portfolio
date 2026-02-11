@@ -19,12 +19,13 @@ export const site = {
   ],
 
   skills: [
-    { group: "Frontend", items: ["React", "Vite", "Tailwind v4", "UI Systems", "Framer Motion"] },
-    { group: "Backend", items: ["Node.js", "Express", "REST APIs", "Prisma", "Auth basics"] },
-    { group: "Data", items: ["PostgreSQL", "Schema design", "Query thinking", "Validation"] },
-    { group: "Dev", items: ["Git/GitHub", "Linux", "Deployment", "Debugging"] },
-    { group: "Science Edge", items: ["Computational chemistry", "MD/DFT familiarity", "HPC environments"] },
+    { group: "Full-Stack", items: ["React", "Vite","Component Architecture","State Handling (useState, useContext)","Responsive UI Design","REST API Integration","Node.js", "Tailwind css", "Dynamic UI Systems","Portfolio Architecture Design", "Framer Motion"] },
+    { group: "Automation & Embedded", items: ["Python Automation", "Scientific Data Processing", "XML Tool Development", "Hardware–Software Integration", "Raspberry Pi Systems","Logic-Based Automation","Embedded System Experimentation","Shell Scripting"] },
+    { group: "Data & Statistics", items: ["Exploratory Data Analysis", "Statistical Testing", "Regression Analysis", "RMSD Statistical Interpretation","Scientific Visualization"] },
+    { group: "HPC & Linux", items: ["Ubuntu", "Linux", "HPC Cluster Usage","Remote Supercomputing Environments","Git Version Control"] },
+    { group: "CompChem & MD", items: ["Molecular Docking Pipelines", "Ligand Optimization", "Molecular Dynamics Simulations","Free Energy Profiling","Lithium-Ion Transport Simulations","ASE Workflows","LAMMPS","Quantum ESPRESSO","PLUMED","Structure Preparation & SDF Processing","Natural Product Database Handling"] },
   ],
+  
 
   projects: [
     {
