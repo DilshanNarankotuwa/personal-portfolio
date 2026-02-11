@@ -4,10 +4,10 @@ import CountUp from "./CountUp.jsx";
 import SpotlightCard from "./SpotlightCard.jsx";
 
 const stats = [
-  { value: 3, suffix: "+", label: "Years of Experience" },
+  { value: 2, suffix: "+", label: "Years of Experience" },
   { value: 25, suffix: "+", label: "Technologies Mastered" },
-  { value: 10, suffix: "+", label: "Completed Projects" },
-  { value: 150, suffix: "+", label: "Contributions" },
+  { value: 5, suffix: "+", label: "Completed Projects" },
+  { value: 500, suffix: "+", label: "Contributions" },
 ];
 
 export default function StatsBar() {
