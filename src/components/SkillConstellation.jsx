@@ -123,6 +123,8 @@ export default function SkillConstellation() {
     site.skills?.find((s) => s.group === active) || site.skills?.[0] || { group: "", items: [] };
 
   const toolItems = useMemo(() => normalizeItems(selected.items), [selected]);
+  const iconTools = useMemo(() => toolItems.filter((t) => !!t.icon), [toolItems]);
+  const listTools = useMemo(() => toolItems.filter((t) => !t.icon), [toolItems]);
 
   const stars = useMemo(() => {
     const rng = (seed) => {
@@ -527,52 +529,77 @@ export default function SkillConstellation() {
               animate={{ opacity: 1, y: 0 }}
               className="shrink-0 rounded-full px-3 py-1 text-xs border border-[rgb(var(--border))] bg-[rgb(var(--card2))] text-[rgb(var(--muted))]"
             >
-              {toolItems.length} tools
+              {toolItems.length} skills
             </motion.div>
           </div>
 
-          <motion.div
-            key={`tools-${selected.group}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
-            className="mt-5 grid grid-cols-2 gap-3"
-          >
-            {toolItems.map((t) => (
-              <div
-                key={t.name}
-                className="group relative overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] p-3 transition hover:-translate-y-[1px] hover:shadow-sm"
-              >
+                    {/* Icon tools (image + name) */}
+          {iconTools.length > 0 && (
+            <motion.div
+              key={`icons-${selected.group}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4"
+            >
+              {iconTools.map((t) => (
                 <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-12 opacity-0 blur-2xl transition group-hover:opacity-100"
-                  style={{
-                    background:
-                      "radial-gradient(closest-side, rgba(var(--brand),0.22), rgba(0,0,0,0))",
-                  }}
-                />
+                  key={t.name}
+                  className="group relative rounded-2xl p-3 text-center transition hover:-translate-y-[1px]"
+                >
+                  {/* soft hover glow */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 blur-xl transition group-hover:opacity-100"
+                    style={{
+                      background:
+                        "radial-gradient(closest-side, rgba(var(--brand),0.18), rgba(0,0,0,0))",
+                    }}
+                  />
 
-                <div className="relative">
-                  <div className="grid place-items-center rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-3">
-                    {t.icon ? (
-                      <img src={t.icon} alt={t.name} className="h-10 w-10 object-contain" />
-                    ) : (
-                      <div className="grid h-10 w-10 place-items-center rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] text-xs font-semibold text-[rgb(var(--muted))]">
-                        {initials(t.name)}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mt-3">
-                    <div className="truncate text-sm font-semibold">{t.name}</div>
-                    <div className="mt-0.5 text-xs text-[rgb(var(--muted))]">
-                      {t.note ? String(t.note) : `in ${selected.group}`}
+                  <div className="relative">
+                    <div className="mx-auto grid h-14 w-14 place-items-center">
+                      <img
+                        src={t.icon}
+                        alt={t.name}
+                        className="h-14 w-14 object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.18)]"
+                        loading="lazy"
+                      />
                     </div>
+                    <div className="mt-2 text-xs font-semibold tracking-tight">{t.name}</div>
                   </div>
                 </div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Non-icon tools (clean list) */}
+          {listTools.length > 0 && (
+            <motion.div
+              key={`list-${selected.group}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: 0.06 }}
+              className={iconTools.length > 0 ? "mt-5" : "mt-5"}
+            >
+              <div className="text-xs tracking-[0.2em] uppercase text-[rgb(var(--muted))]">
+                More skills
               </div>
-            ))}
-          </motion.div>
+
+              <ul className="mt-3 space-y-2">
+                {listTools.map((t) => (
+                  <li key={t.name} className="flex items-start gap-2">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 inline-block h-1.5 w-1.5 rounded-full"
+                      style={{ background: "rgba(var(--brand),0.75)" }}
+                    />
+                    <div className="text-sm leading-snug text-[rgb(var(--text))]">{t.name}</div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
         </div>
       </div>
     </Section>

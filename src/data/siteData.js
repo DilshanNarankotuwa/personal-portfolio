@@ -19,11 +19,75 @@ export const site = {
   ],
 
   skills: [
-    { group: "Full-Stack", items: ["React", "Vite","Component Architecture","State Handling (useState, useContext)","Responsive UI Design","REST API Integration","Node.js", "Tailwind css", "Dynamic UI Systems","Portfolio Architecture Design", "Framer Motion"] },
-    { group: "Automation & Embedded", items: ["Python Automation", "Scientific Data Processing", "XML Tool Development", "Hardware–Software Integration", "Raspberry Pi Systems","Logic-Based Automation","Embedded System Experimentation","Shell Scripting"] },
-    { group: "Data & Statistics", items: ["Exploratory Data Analysis", "Statistical Testing", "Regression Analysis", "RMSD Statistical Interpretation","Scientific Visualization"] },
-    { group: "HPC & Linux", items: ["Ubuntu", "Linux", "HPC Cluster Usage","Remote Supercomputing Environments","Git Version Control"] },
-    { group: "CompChem & MD", items: ["Molecular Docking Pipelines", "Ligand Optimization", "Molecular Dynamics Simulations","Free Energy Profiling","Lithium-Ion Transport Simulations","ASE Workflows","LAMMPS","Quantum ESPRESSO","PLUMED","Structure Preparation & SDF Processing","Natural Product Database Handling"] },
+    {
+      group: "Full-Stack",
+      items: [
+        { name: "React", img: "https://cdn.simpleicons.org/react/61DAFB" },
+        { name: "Vite", img: "https://cdn.simpleicons.org/vite/646CFF" },
+        { name: "Node.js", img: "https://cdn.simpleicons.org/nodedotjs/339933" },
+        { name: "Tailwind CSS", img: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+        { name: "Framer Motion", img: "https://cdn.simpleicons.org/framer/0055FF" },
+        "Component Architecture",
+        "State Handling (useState, useContext)",
+        "Responsive UI Design",
+        "REST API Integration",
+        "Dynamic UI Systems",
+        "Portfolio Architecture Design"
+      ]
+    },
+    {
+      group: "Automation & Embedded",
+      items: [
+        { name: "Python", img: "https://cdn.simpleicons.org/python/3776AB" },
+        "Python Automation",
+        "Scientific Data Processing",
+        "XML Tool Development",
+        "Hardware–Software Integration",
+        "Raspberry Pi Systems",
+        "Logic-Based Automation",
+        "Embedded System Experimentation",
+        "Shell Scripting"
+      ]
+    },
+    {
+      group: "Data & Statistics",
+      items: [
+        { name: "NumPy", img: "https://cdn.simpleicons.org/numpy/013243" },
+        { name: "Pandas", img: "https://cdn.simpleicons.org/pandas/150458" },
+        "Exploratory Data Analysis",
+        "Statistical Testing",
+        "Regression Analysis",
+        "RMSD Statistical Interpretation",
+        "Scientific Visualization"
+      ]
+    },
+    {
+      group: "HPC & Linux",
+      items: [
+        { name: "Linux", img: "https://cdn.simpleicons.org/linux/FCC624" },
+        { name: "Git", img: "https://cdn.simpleicons.org/git/F05032" },
+        "Ubuntu",
+        "HPC Cluster Usage",
+        "Remote Supercomputing Environments",
+        "Git Version Control"
+      ]
+    },
+    {
+      group: "CompChem & MD",
+      items: [
+        { name: "LAMMPS", img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/LAMMPS_logo.png" },
+        { name: "Quantum ESPRESSO", img: "https://www.quantum-espresso.org/wp-content/uploads/2016/02/QE-logo.png" },
+        { name: "PLUMED", img: "https://www.plumed.org/wp-content/uploads/2022/11/plumed-logo.png" },
+        "Molecular Docking Pipelines",
+        "Ligand Optimization",
+        "Molecular Dynamics Simulations",
+        "Free Energy Profiling",
+        "Lithium-Ion Transport Simulations",
+        "ASE Workflows",
+        "Structure Preparation & SDF Processing",
+        "Natural Product Database Handling"
+      ]
+    }
   ],
   
 
