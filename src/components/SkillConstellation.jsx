@@ -27,13 +27,6 @@ function initials(label) {
     .join("");
 }
 
-/**
- * Turn CSS color values into "r g b" (space separated), so we can build rgba(r g b / a) safely.
- * Supports:
- *  - "255 255 255"
- *  - "rgb(255, 255, 255)"
- *  - "#ffffff"
- */
 function toRgbTriplet(value) {
   const v = String(value || "").trim();
   if (!v) return "0 0 0";
@@ -206,32 +199,12 @@ export default function SkillConstellation() {
     <Section
       id="skills"
       eyebrow="Skills"
-      title="Skill constellation"
-      subtitle="GigaHz Systems View — domains orbit like electrons; select one to reveal your stack."
+      
     >
       <div className="grid gap-6 lg:grid-cols-12">
         {/* LEFT */}
         <div className="lg:col-span-7 card rounded-3xl p-6 relative overflow-hidden">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="text-xs tracking-[0.22em] uppercase text-[rgb(var(--muted))]">
-                GigaHz Atom Interface
-              </div>
-              <div className="mt-1 text-sm text-[rgb(var(--muted))]">
-                Hover = pause • Move mouse = depth • Click = lock selection
-              </div>
-            </div>
-
-            <div className="hidden sm:flex items-center gap-2">
-              <span className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-3 py-1 text-xs text-[rgb(var(--muted))]">
-                Active:
-                <span className="ml-2 font-semibold text-[rgb(var(--text))]">
-                  {selected.group || "—"}
-                </span>
-              </span>
-            </div>
-          </div>
-
+          
           {/* background */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <div
@@ -466,20 +439,10 @@ export default function SkillConstellation() {
                     y="205"
                     textAnchor="middle"
                     fontSize="10"
-                    fill={tIdle}
+                    fill={tSub}
                     style={{ letterSpacing: "0.24em", fontWeight: 800 }}
                   >
                     CORE
-                  </text>
-                  <text
-                    x="200"
-                    y="219"
-                    textAnchor="middle"
-                    fontSize="8.5"
-                    fill={tSub}
-                    style={{ letterSpacing: "0.18em", fontWeight: 700 }}
-                  >
-                    GigaHz
                   </text>
                 </g>
 
@@ -564,9 +527,6 @@ export default function SkillConstellation() {
         <div className="lg:col-span-5 card rounded-3xl p-6">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <div className="text-xs tracking-[0.22em] uppercase text-[rgb(var(--muted))]">
-                Selected Node
-              </div>
               <div className="mt-1 text-lg font-semibold tracking-tight">{selected.group}</div>
             </div>
 
