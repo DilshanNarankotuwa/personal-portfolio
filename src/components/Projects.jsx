@@ -15,9 +15,9 @@ function heightByWeight(w) {
   const weight = clamp(Number(w ?? 3), 1, 6);
   if (weight === 6) return 790;
   if (weight === 5) return 620;
-  if (weight === 4) return 580;
+  if (weight === 4) return 650;
   if (weight === 3) return 540;
-  if (weight === 2) return 500;
+  if (weight === 2) return 600;
   return 470;
 }
 
@@ -77,11 +77,11 @@ function ProjectMedia({ media, active }) {
   return (
     <div
       ref={hostRef}
-      className="mt-4 overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] relative flex-1 min-h-[240px]"
+      className="mt-4 overflow-hidden rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] relative"
     >
       <div className="relative w-full" style={{ paddingTop: padTop }}>
         {!load ? (
-          <div className="absolute inset-0 animate-pulse" />
+          <div className="absolute inset-0 h-full w-full animate-pulse" />
         ) : media.kind === "image" ? (
           <img
             src={media.src}
@@ -264,7 +264,7 @@ export default function Projects() {
                           <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
                             {p.title}
                           </h3>
-                          <p className="mt-2 text-base md:text-lg leading-relaxed text-[rgb(var(--muted))] line-clamp-3">
+                          <p className="mt-2 text-base md:text-sm leading-relaxed text-[rgb(var(--muted))] line-clamp-3">
                             {p.description}
                           </p>
                         </div>

@@ -119,7 +119,7 @@ export const site = {
         alt: "GigaHz build flow demo",
       },
 
-      stack: ["React", "Node.js", "PostgreSQL", "Prisma", "Vercel/Render"],
+      stack: ["React", "Node.js", "PostgreSQL", "Prisma"],
       points: [
         "Compatibility logic that prevents invalid builds",
         "Structured API routes and product filtering",
@@ -132,25 +132,100 @@ export const site = {
     },
 
     {
-      title: "Galaxy BRIDGE Undergraduate Final Project",
+      title: "Galaxy BRIDGE Scientific Software Undergraduate Final Project",
       badge: "Research",
       description:
         "A pipeline-based project that connects tools and datasets to streamline scientific workflows and automation.",
-      weight: 2,
-      // ✅ NEW: image example
+      weight: 4,
       media: {
-        kind: "image",
-        src: "/media/galaxy-bridge.png",
+        kind: "video",
+        sources: [
+          { src: "/media/galaxybridge.mp4", type: "video/mp4" },
+        ],
         alt: "Galaxy BRIDGE pipeline preview",
       },
 
-      stack: ["Python", "Automation", "Scientific computing"],
+      stack: ["Python", "Automation","XML", "Scientific computing"],
       points: [
         "Focused on reusable tooling and automation mindset",
         "Showcases engineering + science crossover strength",
       ],
-      links: [{ label: "GitHub", href: "https://github.com/YOUR_USERNAME/galaxy-bridge" }],
+      links: [
+        { label: "Live", href: "https://galaxy-compchem.ilifu.ac.za/root?tool_id=docking_tool" },
+        { label: "Thesis", href: "/thesis/AS2020326.pdf", type: "paper", target: "_blank" },
+      ],
     },
+
+    {
+      title: "Galaxy Pi  Portable Docker-Based Scientific Workstation",
+      badge: "System Engineering",
+      description:
+        "A modular Raspberry Pi 5 based portable computing system designed to run the Galaxy BRIDGE Docker image for molecular docking and molecular dynamics simulations. Transforms from a standalone touchscreen tablet into a dockable laptop system.",
+      weight: 4,
+      media: {
+        kind: "image",
+        src: "/images/projects/galaxypi.png",
+        alt: "Galaxy Pi portable workstation demonstration",
+      },
+
+      stack: [
+        "Raspberry Pi 5",
+        "Docker",
+        "Linux (Raspberry Pi OS)",
+        "Battery Management System",
+        "Hardware Integration",
+        "Containerized Workflows"
+      ],
+
+      points: [
+        "Designed a portable compute system to run Dockerized Galaxy BRIDGE for docking and MD simulations",
+        "Implemented 2S3P and 4S3P lithium-ion battery configurations with 3S BMS for safe power delivery",
+        "Engineered 12V to 5V (5A) buck conversion for stable performance under compute load",
+        "Integrated SSD HAT + 512GB SSD for improved I/O performance over SD storage",
+        "Built modular dock system with 15.6” display and keyboard for laptop-style productivity",
+        "Demonstrates system-level thinking across hardware, Linux, and containerized runtime environments"
+      ],
+
+      links: [
+        { label: "Overview", href: "/docs/galaxypi-architecture.pdf", target: "_blank" },
+        { label: "GitHub", href: "https://github.com/yourusername/galaxypi" }
+      ],
+    },
+
+    {
+      title: "Halox  UI/UX Design System (Figma Project)",
+      badge: "UI/UX Design",
+      description:
+        "A modern UI/UX design project created in Figma focusing on clean layout structure, component consistency, typography hierarchy, and responsive design principles for a futuristic digital product concept.",
+      weight: 2,
+      media: {
+        kind: "image",
+        src: "/images/projects/halox.png", type: "image/png" ,
+        alt: "Halox Figma design system preview",
+      },
+
+      stack: [
+        "Figma",
+        "UI Design",
+        "Design System",
+        "Wireframing",
+        "Prototyping"
+      ],
+
+      points: [
+        "Designed reusable component system with consistent spacing and typography hierarchy",
+        "Developed color palette aligned with futuristic brand identity",
+        "Created responsive layout variations for desktop and mobile",
+        "Built interactive prototype to simulate real user flow",
+        "Focused on clarity, minimalism, and usability-driven interface decisions"
+      ],
+
+      links: [
+        { label: "Prototype", href: "https://www.figma.com/proto/5NJgnFG7TND5JWDl3En4Q6/Halox?node-id=0-1&t=FI5MSBGlSY5YtSt8-1", target: "_blank" }
+      ],
+    }
+
+
   ],
 
 
