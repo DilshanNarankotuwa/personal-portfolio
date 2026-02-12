@@ -10,7 +10,7 @@ function clamp(n, a, b) {
 
 const MAX_ROW = 6;
 
-/** ---------- heights per weight (tuned for media visibility) ---------- */
+/** ---------- heights per weight (desktop only) ---------- */
 function heightByWeight(w) {
   const weight = clamp(Number(w ?? 3), 1, 6);
   if (weight === 6) return 790;
@@ -21,7 +21,7 @@ function heightByWeight(w) {
   return 470;
 }
 
-/** ---------- ProjectMedia (padding-top ratio box, hover-to-play) ---------- */
+/** ---------- ProjectMedia (ratio box, hover-to-play) ---------- */
 function ProjectMedia({ media, active }) {
   const hostRef = useRef(null);
   const vidRef = useRef(null);
@@ -116,15 +116,23 @@ function ProjectMedia({ media, active }) {
               ))}
             </video>
 
+            {/* ✅ Smaller "Hover to preview" badge on mobile */}
             <div
               className={[
                 "pointer-events-none absolute inset-0 grid place-items-center transition duration-200",
                 playing ? "opacity-0" : "opacity-100",
               ].join(" ")}
             >
-              <div className="flex items-center gap-2 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]/80 px-4 py-2 backdrop-blur">
-                <Play className="h-4 w-4" />
-                <span className="text-sm md:text-base text-[rgb(var(--text))]">Hover to preview</span>
+              <div
+                className={[
+                  "flex items-center gap-1.5 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]/80 backdrop-blur",
+                  "px-2 py-1 text-[10px] sm:px-4 sm:py-2 sm:text-sm",
+                ].join(" ")}
+              >
+                <Play className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="text-[10px] sm:text-base text-[rgb(var(--text))]">
+                  Hover to preview
+                </span>
               </div>
             </div>
           </>
@@ -134,9 +142,7 @@ function ProjectMedia({ media, active }) {
   );
 }
 
-/** ---------- row packer: make rows sum to 6 ----------
- * prefers complements: 6, 5+1, 4+2, 3+3
- */
+/** ---------- row packer: make rows sum to 6 ---------- */
 function packIntoRows(items) {
   const pool = (items ?? []).map((p, i) => ({
     ...p,
@@ -144,7 +150,6 @@ function packIntoRows(items) {
     __i: i,
   }));
 
-  // big first
   pool.sort((a, b) => b.__w - a.__w || a.__i - b.__i);
 
   const used = new Set();
@@ -157,7 +162,6 @@ function packIntoRows(items) {
     used.add(it.__i);
     return it;
   }
-
   function takeExact(w) {
     return takeFirst((x) => x.__w === w);
   }
@@ -172,13 +176,11 @@ function packIntoRows(items) {
     remaining -= first.__w;
 
     if (remaining > 0) {
-      // exact complement first
       const exact = takeExact(remaining);
       if (exact) {
         row.push(exact);
         remaining -= exact.__w;
       } else {
-        // best-fit
         while (remaining > 0) {
           const best = takeFirst((x) => x.__w <= remaining);
           if (!best) break;
@@ -201,21 +203,85 @@ function packIntoRows(items) {
   return rows;
 }
 
+function ProjectCard({ p, idx, hoveredId, setHoveredId, desktopSpan }) {
+  const w = clamp(Number(p.weight ?? 3), 1, 6);
+  const h = heightByWeight(w);
+
+  return (
+    <motion.article
+      key={`${p.title}-${idx}`}
+      className={[
+        "rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]",
+        "p-5 sm:p-6 md:p-7 overflow-hidden shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur",
+        "h-auto lg:h-[var(--cardH)]",
+      ].join(" ")}
+      style={{
+        ...(desktopSpan ? { gridColumn: `span ${desktopSpan} / span ${desktopSpan}` } : null),
+        ["--cardH"]: `${h}px`,
+      }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-120px" }}
+      transition={{ duration: 0.45 }}
+      onMouseEnter={() => setHoveredId(p.title)}
+      onMouseLeave={() => setHoveredId(null)}
+    >
+      <div className="h-full flex flex-col">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+          <div className="min-w-0">
+            <h3 className="text-lg sm:text-xl md:text-3xl font-semibold tracking-tight leading-tight">
+              {p.title}
+            </h3>
+
+            {/* ✅ smaller on mobile */}
+            <p className="mt-2 text-xs sm:text-sm md:text-sm leading-relaxed text-[rgb(var(--muted))] line-clamp-4">
+              {p.description}
+            </p>
+          </div>
+
+          {/* ✅ buttons smaller on mobile */}
+          <div className="flex flex-wrap gap-2 sm:justify-end">
+            {p.links?.slice(0, 2)?.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noreferrer"
+                className={[
+                  "inline-flex items-center gap-1.5 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))]",
+                  "px-2.5 py-1.5 text-xs sm:px-3.5 sm:py-2.5 sm:text-sm",
+                  "hover:translate-y-[-1px] transition",
+                ].join(" ")}
+              >
+                {l.label} <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* media */}
+        <ProjectMedia media={p.media} active={hoveredId === p.title} />
+
+        {/* ✅ chips smaller on mobile */}
+        <div className="mt-auto pt-4 flex flex-wrap gap-2">
+          {p.stack?.slice(0, 12)?.map((s) => (
+            <span
+              key={s}
+              className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-2.5 py-1 text-[10px] sm:px-3.5 sm:py-1.5 sm:text-xs"
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function Projects() {
   const projects = useMemo(() => site.projects ?? [], []);
   const rows = useMemo(() => packIntoRows(projects), [projects]);
-
   const [hoveredId, setHoveredId] = useState(null);
-
-  // ✅ responsive span logic (this is the key fix)
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)"); // lg
-    const onChange = () => setIsDesktop(mq.matches);
-    onChange();
-    mq.addEventListener?.("change", onChange);
-    return () => mq.removeEventListener?.("change", onChange);
-  }, []);
 
   return (
     <Section id="projects" eyebrow="Projects">
@@ -227,8 +293,24 @@ export default function Projects() {
           <div className="absolute inset-0 [mask-image:radial-gradient(circle_at_center,black,transparent_70%)] opacity-40" />
         </div>
 
-        {/* rows */}
-        <div className="relative grid gap-7">
+        {/* Mobile/Tablet layout */}
+        <div className="relative grid gap-7 lg:hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+            {projects.map((p, idx) => (
+              <ProjectCard
+                key={`${p.title}-${idx}`}
+                p={p}
+                idx={idx}
+                hoveredId={hoveredId}
+                setHoveredId={setHoveredId}
+                desktopSpan={null}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop layout */}
+        <div className="relative hidden lg:grid gap-7">
           {rows.map((row, ri) => (
             <div
               key={ri}
@@ -238,66 +320,16 @@ export default function Projects() {
               {row.map((p, idx) => {
                 const w = clamp(Number(p.weight ?? 3), 1, 6);
                 const spanDesktop = w * 2; // 6->12, 5->10, 4->8, 3->6, 2->4, 1->2
-                const span = isDesktop ? spanDesktop : 12;
 
                 return (
-                  <motion.article
+                  <ProjectCard
                     key={`${p.title}-${idx}`}
-                    className={[
-                      "rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))]",
-                      "p-6 md:p-7 overflow-hidden shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur",
-                    ].join(" ")}
-                    style={{
-                      gridColumn: `span ${span} / span ${span}`,
-                      height: heightByWeight(w),
-                    }}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-120px" }}
-                    transition={{ duration: 0.45 }}
-                    onMouseEnter={() => setHoveredId(p.title)}
-                    onMouseLeave={() => setHoveredId(null)}
-                  >
-                    <div className="h-full flex flex-col">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="min-w-0">
-                          <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
-                            {p.title}
-                          </h3>
-                          <p className="mt-2 text-base md:text-sm leading-relaxed text-[rgb(var(--muted))] line-clamp-3">
-                            {p.description}
-                          </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2 justify-end">
-                          {p.links?.slice(0, 2)?.map((l) => (
-                            <a
-                              key={l.href}
-                              href={l.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex items-center gap-2 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-3.5 py-2.5 text-sm md:text-base hover:translate-y-[-1px] transition"
-                            >
-                              {l.label} <ArrowUpRight className="h-4 w-4" />
-                            </a>
-                          ))}
-                        </div>
-                      </div>
-
-                      <ProjectMedia media={p.media} active={hoveredId === p.title} />
-
-                      <div className="mt-auto pt-4 flex flex-wrap gap-2.5">
-                        {p.stack?.slice(0, 10)?.map((s) => (
-                          <span
-                            key={s}
-                            className="rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-3.5 py-1.5 text-sm"
-                          >
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.article>
+                    p={p}
+                    idx={idx}
+                    hoveredId={hoveredId}
+                    setHoveredId={setHoveredId}
+                    desktopSpan={spanDesktop}
+                  />
                 );
               })}
             </div>
