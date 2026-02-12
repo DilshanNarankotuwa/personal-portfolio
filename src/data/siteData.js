@@ -64,8 +64,9 @@ export const site = {
     {
       group: "Data & Statistics",
       items: [
-        { name: "NumPy", img: "https://cdn.simpleicons.org/numpy/013243" },
-        { name: "Pandas", img: "https://cdn.simpleicons.org/pandas/150458" },
+        { name: "NumPy", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
+        { name: "Pandas", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
+        { name: "R", img: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" },
         "Exploratory Data Analysis",
         "Statistical Testing",
         "Regression Analysis",

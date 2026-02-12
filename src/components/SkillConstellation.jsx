@@ -533,19 +533,32 @@ export default function SkillConstellation() {
             </motion.div>
           </div>
 
-                    {/* Icon tools (image + name) */}
+          {/* Icon tools (image + name) */}
+          {/* Icon tools (image + name) */}
           {iconTools.length > 0 && (
             <motion.div
               key={`icons-${selected.group}`}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4"
+              className="
+                mt-5
+                grid
+                grid-cols-4
+                gap-2
+                sm:grid-cols-5 sm:gap-3
+                md:grid-cols-4
+                lg:grid-cols-3
+                xl:grid-cols-4
+              "
             >
               {iconTools.map((t) => (
                 <div
                   key={t.name}
-                  className="group relative rounded-2xl p-3 text-center transition hover:-translate-y-[1px]"
+                  className="
+                    group relative rounded-2xl text-center transition hover:-translate-y-[1px]
+                    p-2 sm:p-3
+                  "
                 >
                   {/* soft hover glow */}
                   <div
@@ -558,20 +571,26 @@ export default function SkillConstellation() {
                   />
 
                   <div className="relative">
-                    <div className="mx-auto grid h-14 w-14 place-items-center">
+                    {/* responsive icon box */}
+                    <div className="mx-auto grid place-items-center h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14">
                       <img
                         src={t.icon}
                         alt={t.name}
-                        className="h-14 w-14 object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.18)]"
+                        className="h-full w-full object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.18)]"
                         loading="lazy"
                       />
                     </div>
-                    <div className="mt-2 text-xs font-semibold tracking-tight">{t.name}</div>
+
+                    {/* responsive label */}
+                    <div className="mt-2 text-[10px] sm:text-xs font-semibold tracking-tight leading-snug">
+                      {t.name}
+                    </div>
                   </div>
                 </div>
               ))}
             </motion.div>
           )}
+
 
           {/* Non-icon tools (clean list) */}
           {listTools.length > 0 && (
