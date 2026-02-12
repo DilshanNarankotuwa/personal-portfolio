@@ -186,7 +186,7 @@ export const site = {
       ],
       links: [
         { label: "GitHub", href: "https://github.com/DilshanNarankotuwa/GigaHz" },
-        { label: "Live", href: "https://YOUR_DEPLOYED_URL" },
+        { label: "Live Demo", href: "https://gigahz-demo.vercel.app/" },
       ],
     },
 
