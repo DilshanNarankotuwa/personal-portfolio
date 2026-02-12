@@ -113,10 +113,8 @@ export const site = {
       // ✅ NEW: media between description and stack
       media: {
         kind: "video",
-        poster: "/media/gigahz-poster.jpg",
         sources: [
-          { src: "/media/gigahz-demo.webm", type: "video/webm" },
-          { src: "/media/dj.mp4", type: "video/mp4" },
+          { src: "/media/gigahz.mp4", type: "video/mp4" },
         ],
         alt: "GigaHz build flow demo",
       },

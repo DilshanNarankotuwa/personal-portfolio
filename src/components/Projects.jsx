@@ -13,7 +13,7 @@ const MAX_ROW = 6;
 /** ---------- heights per weight (tuned for media visibility) ---------- */
 function heightByWeight(w) {
   const weight = clamp(Number(w ?? 3), 1, 6);
-  if (weight === 6) return 660;
+  if (weight === 6) return 790;
   if (weight === 5) return 620;
   if (weight === 4) return 580;
   if (weight === 3) return 540;
