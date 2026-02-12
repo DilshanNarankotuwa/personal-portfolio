@@ -185,7 +185,7 @@ export const site = {
         "Designed as both a shop and a portfolio-grade system",
       ],
       links: [
-        { label: "GitHub", href: "https://github.com/YOUR_USERNAME/gigahz" },
+        { label: "GitHub", href: "https://github.com/DilshanNarankotuwa/GigaHz" },
         { label: "Live", href: "https://YOUR_DEPLOYED_URL" },
       ],
     },
@@ -252,12 +252,7 @@ export const site = {
       ],
 
       links: [
-        {
-          label: "Overview",
-          href: "/docs/galaxypi-architecture.pdf",
-          target: "_blank",
-        },
-        { label: "GitHub", href: "https://github.com/yourusername/galaxypi" },
+        { label: "GitHub", href: "https://github.com/DilshanNarankotuwa/Galaxy-Pi-Project" },
       ],
     },
 
