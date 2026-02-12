@@ -11,9 +11,6 @@ export default function Contact() {
       subtitle="If you're building something serious, let's connect."
     >
       <div className="relative overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-5 sm:p-7 lg:p-8 shadow-lg">
-        {/* Background Glow */}
-        <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-[rgb(var(--brand))]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-blue-500/10 blur-3xl" />
 
         {/* Terminal Header */}
         <div className="mb-6">

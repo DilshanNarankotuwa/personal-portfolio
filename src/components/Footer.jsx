@@ -5,8 +5,7 @@ export default function Footer() {
   return (
     <footer className="relative mt-20 border-t border-[rgb(var(--border))] bg-[rgb(var(--card))]">
       
-      {/* Subtle Glow */}
-      <div className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-72 w-72 rounded-full bg-[rgb(var(--brand))]/10 blur-3xl" />
+      
 
       <div className="relative mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
