@@ -56,7 +56,7 @@ export default function Hero() {
   const log = useConsoleLog();
 
   return (
-    <section id="top" className="container-pad pt-12 sm:pt-16 lg:pt-20 pb-20">
+    <section id="about" className="container-pad pt-12 sm:pt-16 lg:pt-20 pb-20">
       <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-12">
         {/* LEFT: image + text */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start min-w-0">

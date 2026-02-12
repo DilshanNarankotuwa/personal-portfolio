@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { site } from "../data/siteData.js";
 
 export default function Footer() {
   return (
@@ -29,14 +30,14 @@ export default function Footer() {
             </h4>
 
             <div className="mt-4 flex flex-col gap-2 text-sm">
+              <a href="#about" className="hover:text-[rgb(var(--brand))] transition">
+                About
+              </a>
               <a href="#projects" className="hover:text-[rgb(var(--brand))] transition">
                 Projects
               </a>
               <a href="#skills" className="hover:text-[rgb(var(--brand))] transition">
                 Skills
-              </a>
-              <a href="#experience" className="hover:text-[rgb(var(--brand))] transition">
-                Experience
               </a>
               <a href="#contact" className="hover:text-[rgb(var(--brand))] transition">
                 Contact
@@ -60,21 +61,21 @@ export default function Footer() {
 
               <div className="flex items-center gap-4 pt-2">
                 <a
-                  href="mailto:YOUR_EMAIL@gmail.com"
+                  href={site.links.email}  target="_blank"
                   className="hover:text-[rgb(var(--brand))] transition"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
 
                 <a
-                  href="https://github.com/YOUR_USERNAME"
+                  href={site.links.github}  target="_blank"
                   className="hover:text-[rgb(var(--brand))] transition"
                 >
                   <Github className="h-5 w-5" />
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/YOUR_USERNAME"
+                  href={site.links.linkedin} target="_blank"
                   className="hover:text-[rgb(var(--brand))] transition"
                 >
                   <Linkedin className="h-5 w-5" />

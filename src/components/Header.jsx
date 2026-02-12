@@ -8,7 +8,6 @@ const items = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -18,7 +17,7 @@ export default function Header() {
       <div className="container-pad flex h-16 items-center justify-between">
         
 
-        <nav className="hidden items-center gap-2 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {items.map((it) => (
             <motion.a
               key={it.href}
@@ -47,6 +46,15 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+           <a
+            className="hidden sm:inline-flex rounded-2xl px-3 py-2 text-sm border border-[rgb(var(--border))] bg-[rgb(var(--card))] hover:translate-y-[-1px] transition"
+            href={site.links.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            
+            Linkedin
+          </a>
           <a
             className="hidden sm:inline-flex rounded-2xl px-3 py-2 text-sm border border-[rgb(var(--border))] bg-[rgb(var(--card))] hover:translate-y-[-1px] transition"
             href={site.links.github}

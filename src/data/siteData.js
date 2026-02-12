@@ -6,9 +6,9 @@ export const site = {
     "Science → Software. I build real systems with clean UI, solid backend logic, and strong engineering thinking.",
 
   links: {
-    github: "https://github.com/YOUR_USERNAME",
-    linkedin: "https://linkedin.com/in/YOUR_USERNAME",
-    email: "mailto:YOUR_EMAIL@gmail.com",
+    github: "https://github.com/DilshanNarankotuwa",
+    linkedin: "https://www.linkedin.com/in/dilshan-narankotuwa-8136a2203/E",
+    email: "mailto:narankotuwadilshan@gmail.com",
     resume: "/resume.pdf", // put resume.pdf in /public
   },
 
@@ -300,22 +300,4 @@ export const site = {
     },
   ],
 
-  experience: [
-    {
-      title: "Full-Stack Projects (Self-Directed)",
-      meta: "2025 → Present",
-      details: [
-        "Built full-stack systems with real constraints (data models, APIs, UI).",
-        "Focused on production-style structure: clean code, reusable components, deployability.",
-      ],
-    },
-    {
-      title: "Science Background (Chemistry Honours)",
-      meta: "2021 → 2025",
-      details: [
-        "Strong analytical thinking and research discipline.",
-        "Comfortable with Linux environments and technical workflows.",
-      ],
-    },
-  ],
 };
