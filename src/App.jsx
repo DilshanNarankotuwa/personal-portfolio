@@ -4,7 +4,6 @@ import Hero from "./components/Hero.jsx";
 import StatsBar from "./components/StatsBar.jsx";
 import SkillConstellation from "./components/SkillConstellation.jsx";
 import Projects from "./components/Projects.jsx";
-import Experience from "./components/Experience.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import Noise from "./components/Noise.jsx";
@@ -28,7 +27,6 @@ export default function App() {
         <StatsBar />
         <SkillConstellation />
         <Projects />
-        <Experience />
         <Contact />
       </main>
 

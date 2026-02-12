@@ -1,55 +1,112 @@
 import React from "react";
 import Section from "./Section.jsx";
-import { site } from "../data/siteData.js";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Send } from "lucide-react";
 
 export default function Contact() {
   return (
     <Section
       id="contact"
-      eyebrow="Contact"
-      title="Let’s build something real"
-      subtitle="If you want a developer who thinks in systems and ships clean work, message me."
+      eyebrow="Transmission"
+      title="Open Channel"
+      subtitle="If you're building something serious, let's connect."
     >
-      <div className="card rounded-3xl p-6">
-        <div className="grid gap-4 md:grid-cols-3">
-          <a className="card2 rounded-2xl p-5 hover:translate-y-[-1px] transition" href={site.links.email}>
-            <div className="flex items-center gap-2">
-              <Mail className="h-4 w-4" />
-              <div className="font-medium">Email</div>
-            </div>
-            <div className="mt-1 text-sm text-[rgb(var(--muted))]">Fastest way to reach me</div>
-          </a>
+      <div className="relative overflow-hidden rounded-3xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-5 sm:p-7 lg:p-8 shadow-lg">
+        {/* Background Glow */}
+        <div className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-[rgb(var(--brand))]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-blue-500/10 blur-3xl" />
 
-          <a className="card2 rounded-2xl p-5 hover:translate-y-[-1px] transition" href={site.links.github} target="_blank" rel="noreferrer">
-            <div className="flex items-center gap-2">
-              <Github className="h-4 w-4" />
-              <div className="font-medium">GitHub</div>
-            </div>
-            <div className="mt-1 text-sm text-[rgb(var(--muted))]">Projects + commits</div>
-          </a>
+        {/* Terminal Header */}
+        <div className="mb-6">
+          <div className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-[rgb(var(--muted))]">
+            TRANSMISSION TERMINAL
+          </div>
 
-          <a className="card2 rounded-2xl p-5 hover:translate-y-[-1px] transition" href={site.links.linkedin} target="_blank" rel="noreferrer">
-            <div className="flex items-center gap-2">
-              <Linkedin className="h-4 w-4" />
-              <div className="font-medium">LinkedIn</div>
-            </div>
-            <div className="mt-1 text-sm text-[rgb(var(--muted))]">Professional profile</div>
-          </a>
+          <div className="mt-2 space-y-1 font-mono text-[12px] sm:text-sm text-green-400">
+            <div>&gt; status: online</div>
+            <div>&gt; system: ready</div>
+          </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <div className="text-sm text-[rgb(var(--muted))]">
-            Prefer email? Click above — it opens a prefilled compose window.
+        {/* Layout */}
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-10">
+          {/* Left Side - Message Form */}
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full rounded-xl bg-[rgb(var(--card2))] p-3 text-sm outline-none border border-[rgb(var(--border))] focus:border-[rgb(var(--brand))]"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full rounded-xl bg-[rgb(var(--card2))] p-3 text-sm outline-none border border-[rgb(var(--border))] focus:border-[rgb(var(--brand))]"
+            />
+            <textarea
+              rows={5}
+              placeholder="Your Message"
+              className="w-full resize-none rounded-xl bg-[rgb(var(--card2))] p-3 text-sm outline-none border border-[rgb(var(--border))] focus:border-[rgb(var(--brand))]"
+            />
+
+            {/* Button: full width on mobile, auto on larger screens */}
+            <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[rgb(var(--brand))] px-6 py-3 text-sm font-medium text-white transition hover:scale-[1.02] active:scale-[0.99]">
+              Send Transmission
+              <Send className="h-4 w-4" />
+            </button>
           </div>
-          <a
-            href="#top"
-            className="rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-2 text-sm hover:translate-y-[-1px] transition"
-          >
-            Back to top
-          </a>
+
+          {/* Right Side - Contact Nodes */}
+          <div className="flex flex-col gap-4 lg:justify-center">
+            <Node
+              href="mailto:YOUR_EMAIL@gmail.com"
+              icon={<Mail className="h-5 w-5 text-[rgb(var(--brand))]" />}
+              title="Email"
+              desc="Fastest response channel"
+            />
+
+            <Node
+              href="https://github.com/YOUR_USERNAME"
+              icon={<Github className="h-5 w-5 text-[rgb(var(--brand))]" />}
+              title="GitHub"
+              desc="Explore my systems & code"
+            />
+
+            <Node
+              href="https://linkedin.com/in/YOUR_USERNAME"
+              icon={<Linkedin className="h-5 w-5 text-[rgb(var(--brand))]" />}
+              title="LinkedIn"
+              desc="Professional network"
+            />
+            
+          </div>
+        </div>
+
+        {/* Footer: stacks nicely */}
+        <div className="mt-7 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-[rgb(var(--border))] pt-4 text-xs text-[rgb(var(--muted))]">
+          
+          <div className="font-mono text-[11px] sm:text-xs text-green-400">
+            &gt; channel: stable
+          </div>
         </div>
       </div>
     </Section>
+  );
+}
+
+function Node({ href, icon, title, desc }) {
+  return (
+    <a
+      href={href}
+      className="group rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] p-4 sm:p-5 transition hover:border-[rgb(var(--brand))] hover:translate-y-[-3px]"
+    >
+      <div className="flex items-center gap-3">
+        <div className="shrink-0">{icon}</div>
+        <div className="min-w-0">
+          <div className="font-medium truncate">{title}</div>
+          <div className="text-xs text-[rgb(var(--muted))] truncate">
+            {desc}
+          </div>
+        </div>
+      </div>
+    </a>
   );
 }
