@@ -22,12 +22,11 @@ function useSystemLines() {
 function useConsoleLog() {
   return useMemo(() => {
     return [
-       { t: "info", v: "booting profile…" },
+      { t: "info", v: "booting profile…" },
       { t: "ok", v: "identity: dilshan" },
       { t: "ok", v: "environment: stable" },
       { t: "ok", v: "integrity check: passed" },
       { t: "info", v: "profile ready for inspection." },
-    
     ];
   }, []);
 }
@@ -45,10 +44,10 @@ function Dot({ kind }) {
     kind === "ok"
       ? "bg-green-400/80"
       : kind === "warn"
-      ? "bg-yellow-400/80"
-      : kind === "err"
-      ? "bg-red-400/80"
-      : "bg-[rgb(var(--muted))]";
+        ? "bg-yellow-400/80"
+        : kind === "err"
+          ? "bg-red-400/80"
+          : "bg-[rgb(var(--muted))]";
   return <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${c}`} />;
 }
 
@@ -97,33 +96,43 @@ export default function Hero() {
               {site.tagline}
             </p>
 
-            <div className="mt-7 grid w-full gap-3 sm:flex sm:flex-wrap sm:justify-center lg:justify-start">
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-start">
+              {/* View Projects */}
               <a
                 href="#projects"
-                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl
-                          bg-[rgb(var(--brand))] px-5 py-3 text-sm font-medium
-                          text-white hover:-translate-y-px transition"
+                className="group inline-flex w-fit items-center justify-center gap-2
+               rounded-xl
+               bg-[rgb(var(--brand))]
+               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm font-medium
+               text-white
+               hover:-translate-y-px transition"
               >
                 View Projects
-                <ArrowRight className="h-4 w-4 opacity-90 group-hover:translate-x-0.5 transition" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 opacity-90 group-hover:translate-x-0.5 transition" />
               </a>
 
+              {/* Contact */}
               <a
                 href="#contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl
-                          border border-[rgb(var(--border))]
-                          bg-[rgb(var(--card))] px-5 py-3 text-sm
-                          hover:-translate-y-[-1px] transition"
+                className="inline-flex w-fit items-center justify-center gap-2
+               rounded-xl
+               border border-[rgb(var(--border))]
+               bg-[rgb(var(--card))]
+               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm
+               hover:-translate-y-[-1px] transition"
               >
                 Contact
               </a>
 
+              {/* Resume */}
               <a
                 href={site.links.resume}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl
-                          border border-[rgb(var(--border))]
-                          bg-[rgb(var(--card))] px-5 py-3 text-sm
-                          hover:-translate-y-[-1px] transition"
+                className="inline-flex w-fit items-center justify-center gap-2
+               rounded-xl
+               border border-[rgb(var(--border))]
+               bg-[rgb(var(--card))]
+               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm
+               hover:-translate-y-[-1px] transition"
               >
                 Resume
               </a>
@@ -165,9 +174,7 @@ export default function Hero() {
                   <span className="text-[rgb(var(--muted))]">:</span>
                   <span className="text-[rgb(var(--brand))]">~/portfolio</span>
                   <span className="text-[rgb(var(--muted))]">$</span>
-                  <span className="text-[rgb(var(--fg))]">
-                    pnpm dev --host
-                  </span>
+                  <span className="text-[rgb(var(--fg))]">pnpm dev --host</span>
                 </div>
 
                 {/* system table (compact + real) */}
@@ -230,9 +237,6 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-
-            
-            
           </motion.div>
         </div>
       </div>
