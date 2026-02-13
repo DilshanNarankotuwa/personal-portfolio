@@ -195,7 +195,7 @@ export const site = {
       badge: "Research",
       description:
         "A pipeline-based project that connects tools and datasets to streamline scientific workflows and automation.",
-      weight: 4,
+      weight: 3,
       media: {
         kind: "video",
         sources: [{ src: "/media/galaxybridge.mp4", type: "video/mp4" }],
@@ -226,7 +226,7 @@ export const site = {
       badge: "System Engineering",
       description:
         "A modular Raspberry Pi 5 based portable computing system designed to run the Galaxy BRIDGE Docker image for molecular docking and molecular dynamics simulations. Transforms from a standalone touchscreen tablet into a dockable laptop system.",
-      weight: 5,
+      weight: 4,
       media: {
         kind: "image",
         src: "/images/projects/galaxypi.png",
@@ -261,7 +261,7 @@ export const site = {
       badge: "UI/UX Design",
       description:
         "A modern UI/UX design project created in Figma focusing on clean layout structure, component consistency, typography hierarchy, and responsive design principles for a futuristic digital product concept.",
-      weight: 2,
+      weight: 3,
       media: {
         kind: "image",
         src: "/images/projects/halox.png",
@@ -293,6 +293,32 @@ export const site = {
         },
       ],
     },
+
+    {
+      title: "Personal Portfolio Website",
+      badge: "Portfolio",
+      description:
+        "A clean, responsive developer portfolio showcasing projects, skills, and contact channels with a modern UI and smooth UX.",
+      weight: 2,
+
+      media: {
+        kind: "image",
+        src: "/images/dilshan.jpeg",
+        alt: "Portfolio website walkthrough",
+      },
+
+      stack: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+      points: [
+        "Mobile-first layout with polished responsive details",
+        "Project showcase with media previews and clear CTAs",
+        "Fast, modern UI with smooth motion and clean typography",
+      ],
+      links: [
+        { label: "Live", href: "https://your-portfolio-link.com/" },
+        { label: "GitHub", href: "https://github.com/DilshanNarankotuwa/your-portfolio-repo" },
+      ],
+    },
+
   ],
 
 };
