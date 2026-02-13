@@ -314,8 +314,7 @@ export const site = {
         "Fast, modern UI with smooth motion and clean typography",
       ],
       links: [
-        { label: "Live", href: "https://your-portfolio-link.com/" },
-        { label: "GitHub", href: "https://github.com/DilshanNarankotuwa/your-portfolio-repo" },
+        { label: "Live", href: "https://personal-portfolio-zeta-coral.vercel.app/" }
       ],
     },
 
