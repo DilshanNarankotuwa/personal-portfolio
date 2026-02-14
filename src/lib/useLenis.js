@@ -9,6 +9,9 @@ export function useLenis() {
       smoothTouch: false,
     });
 
+    // ✅ ADD THIS LINE
+    window.lenis = lenis;
+
     let rafId;
     function raf(time) {
       lenis.raf(time);
@@ -19,6 +22,7 @@ export function useLenis() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      delete window.lenis; // optional cleanup
     };
   }, []);
 }

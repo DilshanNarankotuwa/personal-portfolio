@@ -10,6 +10,7 @@ import Noise from "./components/Noise.jsx";
 import Grid from "./components/Grid.jsx";
 import { useLenis } from "./lib/useLenis.js";
 import { useTheme } from "./lib/useTheme.js";
+import BackToTop from "./components/BackToTop";
 
 export default function App() {
   useLenis();
@@ -28,9 +29,11 @@ export default function App() {
         <SkillConstellation />
         <Projects />
         <Contact />
+        
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 }
