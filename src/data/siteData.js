@@ -7,7 +7,7 @@ export const site = {
 
   links: {
     github: "https://github.com/DilshanNarankotuwa",
-    linkedin: "https://www.linkedin.com/in/dilshan-narankotuwa-8136a2203/E",
+    linkedin: "https://www.linkedin.com/in/dilshan-narankotuwa",
     email: "mailto:narankotuwadilshan@gmail.com",
     resume: "/resume.pdf", // put resume.pdf in /public
   },
