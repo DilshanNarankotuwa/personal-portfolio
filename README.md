@@ -43,13 +43,13 @@ This portfolio is a single-page React application designed to present technical 
 
 ## ✨ Features
 
-- **Responsive Design** — Optimized for mobile, tablet, and desktop viewing
-- **Modern UI/UX** — Clean and professional interface with smooth animations
-- **Project Showcase** — Display featured projects with descriptions and links
-- **Skills Section** — Highlight technical skills and competencies
-- **Contact Form** — Easy way for visitors to get in touch
-- **Fast Performance** — Lightning-fast load times thanks to Vite
-- **SEO Optimized** — Better visibility in search engines
+- **Responsive Design** - Optimized for mobile, tablet, and desktop viewing
+- **Modern UI/UX** - Clean and professional interface with smooth animations
+- **Project Showcase** - Display featured projects with descriptions and links
+- **Skills Section** - Highlight technical skills and competencies
+- **Contact Form** - Easy way for visitors to get in touch
+- **Fast Performance** - Lightning-fast load times thanks to Vite
+- **SEO Optimized** - Better visibility in search engines
 
 ---
 
