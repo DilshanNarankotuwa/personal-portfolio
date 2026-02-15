@@ -1,16 +1,44 @@
-# React + Vite
+# 👨‍💻 Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/Framework-React-blue)
+![Vite](https://img.shields.io/badge/Build-Vite-purple)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-Currently, two official plugins are available:
+A modern, responsive personal portfolio built with **React** and **Vite** to showcase my projects, skills, and professional experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📌 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio is a single-page React application designed to present my technical capabilities, highlight featured projects, and provide a professional digital presence.
 
-## Expanding the ESLint configuration
+It demonstrates structured UI development, component-based architecture, and optimized frontend performance using Vite.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧱 Tech Stack
+
+- **React** — UI framework  
+- **Vite** — Fast build tool & dev server  
+- **CSS / TailwindCSS** — Styling  
+- **Responsive Design** — Mobile & desktop support  
+
+---
+
+## ✨ Features
+
+- Clean, modern UI  
+- Fully responsive layout  
+- Structured project showcase  
+- Interactive navigation  
+- Optimized production build  
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/DilshanNarankotuwa/personal-portfolio.git
+cd personal-portfolio
