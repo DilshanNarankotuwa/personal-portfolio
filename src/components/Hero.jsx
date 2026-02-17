@@ -5,8 +5,11 @@ import { site } from "../data/siteData.js";
 
 function useSystemLines() {
   return useMemo(() => {
-    const now = new Date();
-    const stamp = now.toLocaleString();
+    // Keep timestamp stable (serverless + hydration-friendly)
+    const stamp = new Intl.DateTimeFormat("en-LK", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(new Date());
 
     return [
       { k: "SYSTEM", v: "ONLINE" },
@@ -20,22 +23,15 @@ function useSystemLines() {
 }
 
 function useConsoleLog() {
-  return useMemo(() => {
-    return [
+  return useMemo(
+    () => [
       { t: "info", v: "booting profile…" },
       { t: "ok", v: "identity: dilshan" },
       { t: "ok", v: "environment: stable" },
       { t: "ok", v: "integrity check: passed" },
       { t: "info", v: "profile ready for inspection." },
-    ];
-  }, []);
-}
-
-function Tag({ children }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--card2))] px-2 py-1 text-[10px] sm:text-xs text-[rgb(var(--muted))]">
-      {children}
-    </span>
+    ],
+    []
   );
 }
 
@@ -56,9 +52,13 @@ export default function Hero() {
   const log = useConsoleLog();
 
   return (
-    <section id="about" className="container-pad pt-12 sm:pt-16 lg:pt-20 pb-20">
+    <section
+      id="about"
+      aria-labelledby="hero-title"
+      className="container-pad pt-12 sm:pt-16 lg:pt-20 pb-20"
+    >
       <div className="grid items-start gap-8 md:gap-10 lg:grid-cols-12">
-        {/* LEFT: image + text */}
+        {/* LEFT */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start min-w-0">
           <motion.div
             animate={{ y: [0, -6, 0] }}
@@ -69,12 +69,18 @@ export default function Hero() {
 
             <img
               src="/images/dilshan.jpeg"
-              alt={site.name}
+              alt={`${site.name} — ${site.role}`}
               className="relative z-10 rounded-full object-cover border-4 border-[rgb(var(--border))] shadow-2xl"
               style={{
                 width: "clamp(180px, 45vw, 440px)",
                 height: "clamp(180px, 45vw, 440px)",
               }}
+              // SEO/perf improvements:
+              width="440"
+              height="440"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
             />
           </motion.div>
 
@@ -84,55 +90,51 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="mt-7 sm:mt-8 w-full max-w-xl text-center lg:text-left"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
+            {/* Use H1 for the main page title */}
+            <h1
+              id="hero-title"
+              className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight"
+            >
               Science-grade thinking.
               <br />
               <span className="text-[rgb(var(--muted))]">
                 Production-style software.
               </span>
-            </h2>
+            </h1>
+
+            {/* Optional: add a short “keyword” line (helps recruiters + SEO) */}
+            <p className="mt-3 text-xs sm:text-sm text-[rgb(var(--muted))]">
+              React • Node.js • PostgreSQL • Python Automation • Linux/HPC
+            </p>
 
             <p className="mt-4 text-sm sm:text-base text-[rgb(var(--muted))]">
               {site.tagline}
             </p>
 
             <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-start">
-              {/* View Projects */}
               <a
                 href="#projects"
-                className="group inline-flex w-fit items-center justify-center gap-2
-               rounded-xl
-               bg-[rgb(var(--brand))]
-               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm font-medium
-               text-white
-               hover:-translate-y-px transition"
+                aria-label="View Dilshan's projects"
+                className="group inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-[rgb(var(--brand))] px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm font-medium text-white hover:-translate-y-px transition"
               >
                 View Projects
                 <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 opacity-90 group-hover:translate-x-0.5 transition" />
               </a>
 
-              {/* Contact */}
               <a
                 href="#contact"
-                className="inline-flex w-fit items-center justify-center gap-2
-               rounded-xl
-               border border-[rgb(var(--border))]
-               bg-[rgb(var(--card))]
-               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm
-               hover:-translate-y-[-1px] transition"
+                aria-label="Contact Dilshan"
+                className="inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm hover:-translate-y-[-1px] transition"
               >
                 Contact
               </a>
 
-              {/* Resume */}
               <a
                 href={site.links.resume}
-                className="inline-flex w-fit items-center justify-center gap-2
-               rounded-xl
-               border border-[rgb(var(--border))]
-               bg-[rgb(var(--card))]
-               px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm
-               hover:-translate-y-[-1px] transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Dilshan's resume in a new tab"
+                className="inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] px-4 py-2 text-xs sm:px-5 sm:py-3 sm:text-sm hover:-translate-y-[-1px] transition"
               >
                 Resume
               </a>
@@ -140,7 +142,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT: upgraded console (no modules) */}
+        {/* RIGHT */}
         <div className="lg:col-span-5 min-w-0">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -148,7 +150,6 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 0.08 }}
             className="card rounded-3xl p-4 sm:p-5 shadow-sm"
           >
-            {/* Console header */}
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0">
                 <div className="text-xs tracking-[0.2em] uppercase text-[rgb(var(--muted))]">
@@ -156,17 +157,15 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-2 shrink-0" aria-hidden="true">
                 <span className="h-2 w-2 rounded-full bg-red-400/80" />
                 <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
                 <span className="h-2 w-2 rounded-full bg-green-400/80" />
               </div>
             </div>
 
-            {/* Terminal body */}
             <div className="mt-4 rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--card2))] p-4">
               <div className="font-mono text-xs sm:text-sm min-w-0">
-                {/* prompt line */}
                 <div className="flex flex-wrap items-center gap-2 break-words">
                   <span className="text-[rgb(var(--muted))]">
                     {site.name.split(" ")[0].toLowerCase()}@dev
@@ -177,7 +176,6 @@ export default function Hero() {
                   <span className="text-[rgb(var(--fg))]">pnpm dev --host</span>
                 </div>
 
-                {/* system table (compact + real) */}
                 <div className="mt-4 grid gap-2">
                   {lines.map((l, i) => (
                     <motion.div
@@ -197,13 +195,10 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* boot log */}
                 <div className="mt-4 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--card))] p-3">
-                  <div className="text-[rgb(var(--muted))]">
-                    dev log (latest)
-                  </div>
+                  <div className="text-[rgb(var(--muted))]">dev log (latest)</div>
 
-                  <div className="mt-3 space-y-2">
+                  <div className="mt-3 space-y-2" aria-label="Development log">
                     {log.map((x, i) => (
                       <motion.div
                         key={i}
@@ -214,9 +209,7 @@ export default function Hero() {
                       >
                         <Dot kind={x.t} />
                         <div className="min-w-0 break-words">
-                          <span className="text-[rgb(var(--muted))]">
-                            [{x.t}]
-                          </span>{" "}
+                          <span className="text-[rgb(var(--muted))]">[{x.t}]</span>{" "}
                           <span className="text-[rgb(var(--fg))]">{x.v}</span>
                         </div>
                       </motion.div>
@@ -224,7 +217,6 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* final prompt */}
                 <div className="mt-4 flex items-center gap-2 text-[rgb(var(--muted))]">
                   <span className="text-[rgb(var(--brand))]">READY</span>
                   <span>— scroll to explore projects</span>

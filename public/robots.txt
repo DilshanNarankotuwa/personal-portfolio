@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://personal-portfolio-zeta-coral.vercel.app/sitemap.xml
