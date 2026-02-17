@@ -288,7 +288,7 @@ export const site = {
       links: [
         {
           label: "Prototype",
-          href: "https://www.figma.com/proto/5NJgnFG7TND5JWDl3En4Q6/Halox?node-id=0-1&t=FI5MSBGlSY5YtSt8-1",
+          href: "",
           target: "_blank",
         },
       ],
