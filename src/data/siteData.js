@@ -191,35 +191,35 @@ export const site = {
     },
 
     {
-      title: "Galaxy BRIDGE Scientific Software Undergraduate Final Project",
+      title: "Containerized Scientific Workflow System (Undergraduate Research)",
       badge: "Research",
       description:
-        "A pipeline-based project that connects tools and datasets to streamline scientific workflows and automation.",
+        "Designed and implemented a modular workflow system to automate computational chemistry tasks using reproducible, pipeline-based orchestration.",
       weight: 3,
       media: {
         kind: "video",
-        sources: [{ src: "/media/galaxybridge.mp4", type: "video/mp4" }],
-        alt: "Galaxy BRIDGE pipeline preview",
+        // IMPORTANT: replace with a neutral demo video (e.g., architecture animation, terminal demo, or workflow diagram)
+        sources: [{ src: "/media/workflow.mp4", type: "video/mp4" }],
+        alt: "Scientific workflow automation preview",
       },
 
-      stack: ["Python", "Automation", "XML", "Scientific computing"],
+      stack: ["Python", "XML", "Docker", "Linux", "Automation"],
       points: [
-        "Focused on reusable tooling and automation mindset",
-        "Showcases engineering + science crossover strength",
+        "Built custom tool wrappers and pipeline orchestration for repeatable scientific execution",
+        "Delivered a reproducible containerized environment aligned with research/HPC-style workflows",
       ],
       links: [
+        // Removed "Live" to avoid publishing BRIDGE/server details
+        
         {
-          label: "Live",
-          href: "https://galaxy-compchem.ilifu.ac.za/root?tool_id=docking_tool",
-        },
-        {
-          label: "Thesis",
-          href: "/thesis/AS2020326.pdf",
-          type: "paper",
+          label: "Details (On Request)",
+          href: "mailto:narankotuwadilshan@gmail.com",
+          type: "contact",
           target: "_blank",
         },
       ],
     },
+
 
     {
       title: "Galaxy Pi  Portable Docker-Based Scientific Workstation",
